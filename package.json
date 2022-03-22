@@ -43,7 +43,7 @@
     "@ckeditor/ckeditor5-theme-lark": "^33.0.0",
     "@ckeditor/ckeditor5-typing": "^33.0.0",
     "@ckeditor/ckeditor5-watchdog": "^33.0.0",
-    "@ckeditor/ckeditor5-word-count": "^33.0.0",
+    "@ckeditor/ckeditor5-word-count": "^33.0.0"
   },
   "devDependencies": {
     "@ckeditor/ckeditor5-adapter-ckfinder": "^33.0.0",
