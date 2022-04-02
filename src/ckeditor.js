@@ -69,10 +69,16 @@ import Underline from '@ckeditor/ckeditor5-basic-styles/src/underline.js';
 import WordCount from '@ckeditor/ckeditor5-word-count/src/wordcount.js';
 import EditorWatchdog from '@ckeditor/ckeditor5-watchdog/src/editorwatchdog.js';
 
-class Editor extends ClassicEditor {}
+
+// Balloon blovk editor
+import BlockToolbar from '@ckeditor/ckeditor5-ui/src/toolbar/block/blocktoolbar.js';
+import BalloonBlockEditor from '@ckeditor/ckeditor5-editor-balloon/src/ballooneditor.js';
+
+class Classic extends ClassicEditor {}
+class Balloon extends BalloonBlockEditor {}
 
 // Plugins to include in the build.
-Editor.builtinPlugins = [
+Classic.builtinPlugins = [
 	Alignment,
 	Autoformat,
 	AutoLink,
@@ -139,8 +145,8 @@ Editor.builtinPlugins = [
 	WordCount
 ];
 
-// Editor configuration.
-Editor.defaultConfig = {
+// Classic configuration.
+Classic.defaultConfig = {
 	toolbar: {
 		items: [
 			'heading',
@@ -204,4 +210,142 @@ Editor.defaultConfig = {
 	}
 };
 
-export default { Editor, EditorWatchdog };
+
+Balloon.builtinPlugins = [
+	BlockToolbar,
+	Alignment,
+	Autoformat,
+	AutoLink,
+	BlockQuote,
+	Bold,
+	CKFinderUploadAdapter,
+	Code,
+	CodeBlock,
+	DataFilter,
+	DataSchema,
+	Essentials,
+	FindAndReplace,
+	FontBackgroundColor,
+	FontColor,
+	FontFamily,
+	FontSize,
+	GeneralHtmlSupport,
+	Heading,
+	Highlight,
+	HorizontalLine,
+	HtmlComment,
+	HtmlEmbed,
+	Image,
+	ImageCaption,
+	ImageInsert,
+	ImageResize,
+	ImageStyle,
+	ImageToolbar,
+	ImageUpload,
+	Indent,
+	IndentBlock,
+	Italic,
+	Link,
+	LinkImage,
+	List,
+	ListProperties,
+	MediaEmbed,
+	MediaEmbedToolbar,
+	Mention,
+	PageBreak,
+	Paragraph,
+	PasteFromOffice,
+	RemoveFormat,
+	SourceEditing,
+	SpecialCharacters,
+	SpecialCharactersArrows,
+	SpecialCharactersCurrency,
+	SpecialCharactersEssentials,
+	SpecialCharactersLatin,
+	SpecialCharactersMathematical,
+	StandardEditingMode,
+	Strikethrough,
+	Superscript,
+	Table,
+	TableCaption,
+	TableCellProperties,
+	TableProperties,
+	TableToolbar,
+	TextPartLanguage,
+	TextTransformation,
+	Title,
+	TodoList,
+	Underline,
+	WordCount
+];
+
+// Classic configuration.
+Balloon.defaultConfig = {
+	toolbar: {
+		items: [
+			'heading',
+			'bold',
+			'italic',
+			'link',
+			'bulletedList',
+			'numberedList',
+			'|',
+			'outdent',
+			'indent',
+			'|',
+			'imageUpload',
+			'blockQuote',
+			'insertTable',
+			'mediaEmbed',
+			'undo',
+			'redo',
+			'alignment',
+			'code',
+			'codeBlock',
+			'findAndReplace',
+			'fontBackgroundColor',
+			'fontColor',
+			'fontFamily',
+			'fontSize',
+			'highlight',
+			'horizontalLine',
+			'htmlEmbed',
+			'imageInsert',
+			'pageBreak',
+			'removeFormat',
+			'sourceEditing',
+			'specialCharacters',
+			'restrictedEditingException',
+			'strikethrough',
+			'superscript',
+			'textPartLanguage',
+			'todoList',
+			'underline'
+		]
+	},
+	language: 'en',
+	image: {
+		toolbar: [
+			'imageTextAlternative',
+			'imageStyle:inline',
+			'imageStyle:block',
+			'imageStyle:side',
+			'linkImage'
+		]
+	},
+	table: {
+		contentToolbar: [
+			'tableColumn',
+			'tableRow',
+			'mergeTableCells',
+			'tableCellProperties',
+			'tableProperties'
+		]
+	}
+};
+
+export default { 
+	ClassicEditor: Classic,
+	BalloonEditor: Balloon,
+	EditorWatchdog : EditorWatchdog
+};
