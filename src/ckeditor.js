@@ -68,6 +68,8 @@ import TodoList from '@ckeditor/ckeditor5-list/src/todolist';
 import Underline from '@ckeditor/ckeditor5-basic-styles/src/underline.js';
 import WordCount from '@ckeditor/ckeditor5-word-count/src/wordcount.js';
 import EditorWatchdog from '@ckeditor/ckeditor5-watchdog/src/editorwatchdog.js';
+import HeadingButtonsUI from '@ckeditor/ckeditor5-heading/src/headingbuttonsui';
+import ParagraphButtonUI from '@ckeditor/ckeditor5-paragraph/src/paragraphbuttonui';
 
 
 // Balloon blovk editor
@@ -77,8 +79,9 @@ import BalloonBlockEditor from '@ckeditor/ckeditor5-editor-balloon/src/ballooned
 class Classic extends ClassicEditor {}
 class Balloon extends BalloonBlockEditor {}
 
-// Plugins to include in the build.
-Classic.builtinPlugins = [
+const allPlugins = [
+	HeadingButtonsUI,
+	ParagraphButtonUI,
 	Alignment,
 	Autoformat,
 	AutoLink,
@@ -144,6 +147,8 @@ Classic.builtinPlugins = [
 	Underline,
 	WordCount
 ];
+// Plugins to include in the build.
+Classic.builtinPlugins = allPlugins;
 
 // Classic configuration.
 Classic.defaultConfig = {
@@ -213,70 +218,7 @@ Classic.defaultConfig = {
 
 Balloon.builtinPlugins = [
 	BlockToolbar,
-	Alignment,
-	Autoformat,
-	AutoLink,
-	BlockQuote,
-	Bold,
-	CKFinderUploadAdapter,
-	Code,
-	CodeBlock,
-	DataFilter,
-	DataSchema,
-	Essentials,
-	FindAndReplace,
-	FontBackgroundColor,
-	FontColor,
-	FontFamily,
-	FontSize,
-	GeneralHtmlSupport,
-	Heading,
-	Highlight,
-	HorizontalLine,
-	HtmlComment,
-	HtmlEmbed,
-	Image,
-	ImageCaption,
-	ImageInsert,
-	ImageResize,
-	ImageStyle,
-	ImageToolbar,
-	ImageUpload,
-	Indent,
-	IndentBlock,
-	Italic,
-	Link,
-	LinkImage,
-	List,
-	ListProperties,
-	MediaEmbed,
-	MediaEmbedToolbar,
-	Mention,
-	PageBreak,
-	Paragraph,
-	PasteFromOffice,
-	RemoveFormat,
-	SourceEditing,
-	SpecialCharacters,
-	SpecialCharactersArrows,
-	SpecialCharactersCurrency,
-	SpecialCharactersEssentials,
-	SpecialCharactersLatin,
-	SpecialCharactersMathematical,
-	StandardEditingMode,
-	Strikethrough,
-	Superscript,
-	Table,
-	TableCaption,
-	TableCellProperties,
-	TableProperties,
-	TableToolbar,
-	TextPartLanguage,
-	TextTransformation,
-	Title,
-	TodoList,
-	Underline,
-	WordCount
+	...allPlugins
 ];
 
 // Classic configuration.
